@@ -1,15 +1,19 @@
 import "./App.css";
-import { CakeView } from "./features/cake/CakeView";
-import { IcecreamView } from "./features/icecream/IcecreamView";
-import { UserView } from "./features/user/UserView";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Header from "./components/Header";
 function App() {
   return (
-    <div className="App">
-      <CakeView />
-      <IcecreamView />
-      <UserView />
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 
